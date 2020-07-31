@@ -1,0 +1,64 @@
+Class A
+--------
+Foo
+Poo
+Hoo
+Log
+
+vftable
+Foo
+Poo
+Hoo
+Log
+
+Class B : public A
+--------
+Coo
+Boo
+Foo
+
+vftable = copy A::vftable
+Foo	<- Replace
+Poo
+Hoo
+Log
+Coo <- App
+Boo <- App
+
+Class C : public B
+-------
+A
+B
+C
+Log
+
+vftable = copy B::vftable
+Foo
+Poo
+Hoo
+Log <- Replace
+Coo
+Boo
+A
+B
+C
+
+The only superclass may only ever be 'Object'.
+The superclass will only ever have the append list of functions.
+vftable copy && replace if class.super != null
+Append either way if anything.
+
+Casting
+-------
+
+Object 'Object'
+index = 0;
+
+Object 'B' : public 'Object'
+index = 1
+
+Object 'C' : public 'Object'
+index = 1
+
+Object O = new A;
+B b = (Object)O;

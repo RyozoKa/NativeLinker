@@ -1,0 +1,11 @@
+Build=Debug
+#define LOL REPLAce wItH LoL
+#define NEWLOL(A,B,C) NONON NONO \
+GGGG BBBB CCCC TESTING STUFF 
+#define THECLASS(A,B,C) public native abstract class Object \
+{	\
+Class<Object> 	A;	\
+String 			B;	\
+Bool 			C;	\
+native static void Log(String);\
+};

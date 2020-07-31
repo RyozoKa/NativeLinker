@@ -1,0 +1,19 @@
+
+
+
+Since C++ classes and Hyper classes are vastly different, their functions will live on different places too.
+In script classes the functions are accessible through the vftable 
+
+In C++ they are declared and defined in the object class itself, unlike the script classes.
+In order to map them nicely we have to register them in a table aswell
+We use the script class to store the native array, but it's registered only first when an object is created.
+For static functions we need a separate table aswell, this one should be registered when the script class 
+is loaded.
+This means we need to get the address of that function at runtime, it will be an old C function with no arguments
+just like the allocators and deallocators, and must be retrieved using the ldfunc() function. Therefore it must be exported aswell.
+
+Native functions will now be registered by a static function, and index calculated by the compiler.
+Static function will be masked by a macro
+
+vftable <- stores all virtual script functions including static functions
+nvftable <- stores all native virtual functions including static functions

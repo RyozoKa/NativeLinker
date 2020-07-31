@@ -1,0 +1,10 @@
+﻿Build started 2017-10-08 19:53:17.
+     1>Project "D:\C++\Projects\GetHyper\Core\Core.vcxproj" on node 2 (ClCompile target(s)).
+     1>ClCompile:
+         D:\C++\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /Ox /Oi /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D GETHYPER_EXPORTS /D "DLLIMPORT=__declspec(dllimport)" /D "DLLEXPORT=__declspec(dllexport)" /D "ENDL=L'\n'" /D UNICODE /D _WINDLL /D _UNICODE /D UNICODE /GF /Gm /EHsc /MD /GS- /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /FA /Fd"x64\Release\vc100.pdb" /Gd /TP /errorReport:prompt HypVM.cpp
+         HypVM.cpp
+     1>Done Building Project "D:\C++\Projects\GetHyper\Core\Core.vcxproj" (ClCompile target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.73

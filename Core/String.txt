@@ -1,0 +1,47 @@
+
+
+public native class String extends Object
+{
+	//Native only variables
+	private unsinged int64 Data;
+	private unsigned short	Len;
+
+	//Operators
+	public native operator String = (String);
+	public native operator String = (int64);			//These map onto smaller signed
+	public native operator String = (unsigned int64);	//These map onto smaller unsigned.
+	public native operator String = (double);
+
+	public native operator String == (String);
+	public native operator String ~= (String);	//Optimized, only works with a-z~
+	public native operator String != (String);
+	
+	public native operator String += (String);
+	public native operator String += (int64);
+	public native operator String += (unsigned int64);
+	public native operator String += (double);
+	public native operator String -= (String);
+
+
+	//Functions
+	public native void Clear	();
+	public native bool IsEmpty	();
+	public 
+
+	public native String ToLower();
+	public native void   DoLower();
+
+	public native String ToUpper();
+	public native void   DoUpper();
+
+	public native void Swap		(String);
+	public native String Substr	(int, int i=0);
+
+	public native int find		(String);	//Needs to be implemented
+	public native int findlast	(String);	//Needs to be implemented
+	public native int findexact	(String);	//Needs to be implemented
+
+	public native bool BeginsWith(String);
+	public native bool EndsWith(String);
+
+}

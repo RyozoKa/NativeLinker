@@ -1,0 +1,4 @@
+LIBRARY Core
+;EXPORTS
+;	?CallVirtualFunction@HypThread@@QEAAXPEAVHObject@@G@Z
+

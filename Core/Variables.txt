@@ -1,0 +1,79 @@
+
+
+//Covers different scenarios of temporary strings and assigning integers or doubles to strings
+
+Class Test extends object native
+{
+	int myInt;
+	String myString
+
+	String getString(int myInt,float myFloat)
+	{
+		float MynewFloat = myInt + MyFloat;
+		return MynewFloat;
+	}
+
+
+
+}
+
+int main()
+{
+	int MynewInt = getString(129,13.2345);	//Error: can't convert from type 'String' to type 'Integer'
+
+}
+
+//String examples
+
+String A = "Hello"
+String B = " World"
+String C = A + B;	//Recognize optimization and assign A -> C and append B
+
+//Call:
+SomeFunc(A + B); // push(TempStr(A) += B)
+
+EX_callvirt SomeFunc
+
+
+
+void SomeFunc(String str)	//Callee must set up string Parameters and local Strings
+{
+	EX_dupstr	0	;Duplicate string and create a local copy if parameter is != _pointer_
+	//Code
+	String lcstring;		//If variable is unused, compiler will not include it.
+	String lc2string;
+	//ASM
+	;EX_lstring_0	0	;Allocate local string with NULL if next task with this variable is in a loop. Otherwise optimize this away and let the next opcode initialize the variable with its operand.
+	;EX_lstring_0	1	;Allocate another local string
+
+	//Do something
+	lcstring = "Test string";
+	lc2string = str;
+	//ASM
+	EX_initlst		0,	0	;Init local string with constant (local idx, const idx) operands: UINT
+	EX_pushp		0		;Push parameter 0 onto the stack
+	EX_stinitlst	0		;Init string with variable from the stack
+}
+
+String SomeOtherFunc( _pointer_ String str)
+{
+	String lstr = str;
+
+	//ASM
+	EX_dref			0		;dereference a reference parameter to be treated as a value (idx 0)
+	EX_stinitlst	0		;Init string with variable from the stack
+}
+
+Supported data types:
+
+Byte
+Short /	Unsigned short
+integer / Unsigned integer
+integer 64 / Unsigned integer 64
+Double
+String
+Class objects
+Object instance
+Array (Dynamic)
+Structure object
+

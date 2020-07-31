@@ -1,0 +1,37 @@
+Current solution stores every type in a fixed 8 byte boundary, leaving a lot of padding for smaller datatypes
+Let's see if we can find a better way to implement them.
+
+Start with Parameter and variable blocks, align every member by one byte.
+Count explicit offset, and not relative. This will be done by the compiler, so no overhead will be applied.
+
+Compact packing:
+INT64 a; <-- 0
+BYTE b;	 <-- 7
+UINT c;  <-- 8
+USHORT d;<-- 12
+
+8 bytes packing:
+INT64 a; <-- 0
+BYTE b;	 <-- 7
+UINT c;  <-- 15
+USHORT d;<-- 23
+
+Indexing will be straightforward.
+pushing to stack requires size specific opcodes for:
+byte
+word
+dword
+qword
+oldschool...
+
+Every operation essentially requires assignments. Do we need explicit assignment operators?
+Maybe?
+..
+I will implement them to avoid a second opcode for AND boundary check
+
+Stack related opcodes
+
+opcode<1b> operand<4b>
+		   index<2b>bitmask<2b>
+
+Most efficient way for bitmasks using 2bytes to represent 4 different sizes... mask is now hardcoded into the operand (USHORT index, UINT64 mask)

@@ -1,0 +1,74 @@
+
+In runtime there is a global constant pool table that stores constant strings.
+Every constant string will be stored in this table, and then every class will have a local lookup table for it.
+
+Every Hyper Package will have a constant pool table which will be mapped into the global table through the class' lookup table
+
+
+Class table:
+0x0: "Example1"	<<Duplicate
+0x1: "Example2"
+
+Class2 table:
+0x0: "Hello"
+0x1: "World"
+0x2: "Example1" <<Duplicate
+
+--->>> In package
+
+Package 1:
+
+Class table:
+0x0: 0x2
+0x1: 0x3
+
+Class2 table:
+0x0: 0x0
+0x1: 0x1
+0x2: 0x2
+
+ConstantPoolTable:
+0x0: "Hello"
+0x1: "World"
+0x2: "Example1"
+0x3: "Example2"
+
+Package 2:
+
+Class3 table:
+0x0: 0x1
+0x1: 0x3
+
+Class4 table:
+0x0: 0x0
+0x1: 0x3
+0x2: 0x2
+
+ConstantPoolTable:
+0x0: "Hello My"
+0x1: "World"
+0x2: "Example3"
+0x3: "Example4"
+
+
+--->> Load time
+
+Global pool table:
+	(Resolve addresses)
+Class 0x0 -> 0x2 -> PackagePoolTable(0x2) -> RegisterPool(return address) -> Class 0x0 = 0x0
+Class 0x1 -> 0x3 -> PackagePoolTable(0x3) -> RegisterPool(return address) -> Class 0x1 = 0x1
+
+Class2 0x0 -> 0x0 -> PackagePoolTable(0x0) -> RegisterPool(return address) -> Class2 0x0 = 0x3
+Class2 0x1 -> 0x1 -> PackagePoolTable(0x1) -> RegisterPool(return address) -> Class2 0x1 = 0x4
+Class2 0x2 -> 0x2 -> PackagePoolTable(0x2) -> RegisterPool(return address) -> Class2 0x2 = 0x5
+
+Class3 0x0 -> 0x1 -> PackagePoolTable(0x1) -> RegisterPool(return address) -> Class3 0x0 = 0x6
+Class3 0x1 -> 0x3 -> PackagePoolTable(0x3) -> RegisterPool(return address) -> Class3 0x1 = 0x7
+
+Class4 0x0 -> 0x0 -> PackagePoolTable(0x0) -> RegisterPool(return address) -> Class4 0x0 = 0x8
+Class4 0x1 -> 0x3 -> PackagePoolTable(0x3) -> RegisterPool(return address) -> Class4 0x1 = 0x9
+Class4 0x2 -> 0x2 -> PackagePoolTable(0x2) -> RegisterPool(return address) -> Class4 0x2 = 0x10
+
+--->> Save time
+
+Class 0x0 -> PackagePoolTable(0x0) -> RegisterPackagePool(Return address) -> Class 0x0 = 0x0

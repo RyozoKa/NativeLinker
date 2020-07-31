@@ -1,0 +1,99 @@
+Compiling is done in several stages.
+The very first stage is to read the Makefile from the project's root directory, without this file you wont get anywhere...
+Second stage is parsing each compilation unit's preprocessor definitions, then class definition with global variables, then function declaration and bodies.
+All text will be stored in memory before compilation
+Third stage is compiling function bodies down to bytecode.
+Last stage is serializing all class units and save them to target package file.
+
+Preprocessor definitions
+This is a C-like preprocessor with #define directives and various operators, with support for parameter passing.
+Every #define directive written in a compilation unit is limited to that, and that compilation unit only.
+If you need project wide definitions, you can define those in the makefile, the same way you do in the source code.
+
+operators:
+operator ##: Combines a parameter argument with another token in the definition.
+operator #: Creates a constant string out of the righthand operand operator#(token)
+
+Compiling into ContentEntry*
+Bind superclasses in code units
+
+Imports and dependencies:
+GetClass in charge of adding requested dependencies if they are pulled from the import list.
+Only dependencies that are actually requested will be added to the import list, and so it's therefore
+necessary that the compiler is responsible.
+
+
+RAX = DEST
+RBX = SOURCE
+
+XMM6 = DEST
+XMM7 = SOURCE
+
+Parameters:
+
+local int a = 10;	//local
+int b = 100			//global
+double dm = 10045.6778	//global
+
+SomeFunc(a, b, 10.500, de);
+
+We can push them left to right or whatever..
+This context must be pushed last
+
+pushing operands will require that the source is ran first, then the destination
+
+EX_rax_dw_pushl, 0,
+EX_MV2RDX,
+EX_rax_dw_pushgp, 0,
+EX_MV2R8,
+EX_rax_pushli,
+EX_MV2XMM0,
+EX_rax_pushgp, 8,
+EX_MV2R9,
+CALLVIRT_T, 0
+
+
+SomeFunc(int i, pointer int j, double k, pointer double l)
+{
+	local int a;
+	local double lk;
+	a = i;
+
+	l = 134.10
+
+	lk = l;
+
+	EX_rbx_pushlp, 8	;RBX
+	EX_MVRDX,			;RAX
+	EX_assidw,
+
+	EX_xmm7_pushli, 134.10, 
+	EX_MVR9,
+	EX_ASSID,
+
+	EX_MVR9,
+	EX_MV2RBX,
+	EX_RBX_D_DREF,
+	EX_rax_pushlp, 8,
+	 
+
+}
+
+
+
+Temporary strings is created on the stack, it also means we need to create a new stack frame.
+"My" + "Test" + "String" would only need to have one temp string,
+
+Func("HELLO" + " WORLD" == "HELLO WORLD" &&);
+
+EX_rax_pushsli,0,
+EX_dupstr,	<-- Allocate stack
+EX_rbx_pushsli,1,
+EX_ADDS,	<-- Creates stack frame:
+
+
+CALLVIRT_T,0
+
+
+1234,6341
+

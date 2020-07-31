@@ -1,0 +1,30 @@
+﻿Build started 2017-10-08 19:45:22.
+     1>Project "D:\C++\Projects\GetHyper\Test\Test.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "x64\Release\Test.lastbuildstate".
+       InitializeBuildStatus:
+         Touching "x64\Release\Test.unsuccessfulbuild".
+       ClCompile:
+         D:\C++\VC\bin\x86_amd64\CL.exe /c /ID:\C++\Projects\GetHyper\Core /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _CONSOLE /D "DLLIMPORT=__declspec(dllexportt)" /D "DLLEXPORT=__declspec(dllimport)" /D "ENDL=L'\n'" /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /FA /Fd"x64\Release\vc100.pdb" /Gd /TP /errorReport:prompt stdafx.cpp Test.cpp
+         stdafx.cpp
+         Test.cpp
+     1>Test.cpp(52): warning C4305: 'initializing' : truncation from '' to 'BYTE'
+     1>Test.cpp(52): warning C4309: 'initializing' : truncation of constant value
+     1>Test.cpp(61): warning C4305: 'initializing' : truncation from '' to 'BYTE'
+     1>Test.cpp(61): warning C4309: 'initializing' : truncation of constant value
+       Link:
+         D:\C++\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\C++\Projects\GetHyper\x64\Release\Test.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:D:\C++\Projects\GetHyper\x64\Release Core.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"x64\Release\Test.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\C++\Projects\GetHyper\x64\Release\Test.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\C++\Projects\GetHyper\x64\Release\Test.lib" /MACHINE:X64 stdafx.obj
+         Test.obj
+         Generating code
+         Finished generating code
+         Test.vcxproj -> D:\C++\Projects\GetHyper\x64\Release\Test.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\C++\Projects\GetHyper\x64\Release\Test.exe;#1" /manifest x64\Release\Test.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "x64\Release\Test.unsuccessfulbuild".
+         Touching "x64\Release\Test.lastbuildstate".
+     1>Done Building Project "D:\C++\Projects\GetHyper\Test\Test.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.79

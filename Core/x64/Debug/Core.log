@@ -1,0 +1,66 @@
+﻿Build started 2017-10-02 17:54:24.
+     1>Project "D:\C++\Projects\GetHyper\Core\Core.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "x64\Debug\Core.lastbuildstate".
+       InitializeBuildStatus:
+         Touching "x64\Debug\Core.unsuccessfulbuild".
+       _MASM:
+         Assembling [Inputs]...
+         cmd.exe /C "C:\Users\Chris\AppData\Local\Temp\tmp2a5de77a152e4b3588c92d0052141892.cmd"
+         ml64.exe /c /nologo /Zi /Fo"x64\Debug\HypVMASM.obj" /W3 /errorReport:prompt  /TaHypVMASM.asm
+       ClCompile:
+         D:\C++\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D GETHYPER_EXPORTS /D "DLLIMPORT=__declspec(dllimport)" /D "DLLEXPORT=__declspec(dllexport)" /D "ENDL=L'\n'" /D UNICODE /D _WINDLL /D _UNICODE /D UNICODE /GF /Gm /EHsc /RTCc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"x64\Debug\Core.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc100.pdb" /Gd /TP /errorReport:prompt stdafx.cpp /F 10240 
+         stdafx.cpp
+         D:\C++\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D GETHYPER_EXPORTS /D "DLLIMPORT=__declspec(dllimport)" /D "DLLEXPORT=__declspec(dllexport)" /D "ENDL=L'\n'" /D UNICODE /D _WINDLL /D _UNICODE /D UNICODE /GF /Gm /EHsc /RTCc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc100.pdb" /Gd /TP /errorReport:prompt Core.cpp HypCompiler.cpp HypImportManager.cpp HypIO.cpp HypLinux.cpp HypMath.cpp HypObject.cpp HypOutput.cpp HypScript.cpp HypString.cpp HypTemplate.cpp HypVM.cpp HypWin32.cpp HypWindowsConsole.cpp /F 10240 
+         HypWindowsConsole.cpp
+         HypWin32.cpp
+         HypVM.cpp
+         HypTemplate.cpp
+         HypString.cpp
+         HypScript.cpp
+     1>HypScript.cpp(12): warning C4291: 'void *HObject::operator new(size_t,HClass *)' : no matching operator delete found; memory will not be freed if initialization throws an exception
+                 d:\c++\projects\gethyper\core\HypScript.h(155) : see declaration of 'HObject::operator new'
+         HypOutput.cpp
+         HypObject.cpp
+         HypMath.cpp
+         HypLinux.cpp
+         HypIO.cpp
+         HypImportManager.cpp
+         HypCompiler.cpp
+     1>HypCompiler.cpp(1220): warning C4805: '|=' : unsafe mix of type 'USHORT' and type 'bool' in operation
+     1>HypCompiler.cpp(1581): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+         Core.cpp
+     1>Core.cpp(10): warning C4018: '<' : signed/unsigned mismatch
+         Generating Code...
+         D:\C++\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D GETHYPER_EXPORTS /D "DLLIMPORT=__declspec(dllimport)" /D "DLLEXPORT=__declspec(dllexport)" /D "ENDL=L'\n'" /D UNICODE /D _WINDLL /D _UNICODE /D UNICODE /GF /Gm /EHsc /RTCc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc100.pdb" /Gd /TP /errorReport:prompt dllmain.cpp /F 10240 
+         dllmain.cpp
+       Link:
+         D:\C++\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\C++\Projects\GetHyper\x64\Debug\Core.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"ASM.def" /MANIFEST /ManifestFile:"x64\Debug\Core.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\C++\Projects\GetHyper\x64\Debug\Core.pdb" /SUBSYSTEM:WINDOWS /OPT:NOREF /OPT:NOICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\C++\Projects\GetHyper\x64\Debug\Core.lib" /MACHINE:X64 /DLL x64\Debug\Core.obj
+         x64\Debug\dllmain.obj
+         x64\Debug\HypCompiler.obj
+         x64\Debug\HypImportManager.obj
+         x64\Debug\HypIO.obj
+         x64\Debug\HypLinux.obj
+         x64\Debug\HypMath.obj
+         x64\Debug\HypObject.obj
+         x64\Debug\HypOutput.obj
+         x64\Debug\HypScript.obj
+         x64\Debug\HypString.obj
+         x64\Debug\HypTemplate.obj
+         x64\Debug\HypVM.obj
+         x64\Debug\HypWin32.obj
+         x64\Debug\HypWindowsConsole.obj
+         x64\Debug\stdafx.obj
+         x64\Debug\HypVMASM.obj
+            Creating library D:\C++\Projects\GetHyper\x64\Debug\Core.lib and object D:\C++\Projects\GetHyper\x64\Debug\Core.exp
+         Core.vcxproj -> D:\C++\Projects\GetHyper\x64\Debug\Core.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\C++\Projects\GetHyper\x64\Debug\Core.dll;#2" /manifest x64\Debug\Core.dll.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "x64\Debug\Core.unsuccessfulbuild".
+         Touching "x64\Debug\Core.lastbuildstate".
+     1>Done Building Project "D:\C++\Projects\GetHyper\Core\Core.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:15.21
